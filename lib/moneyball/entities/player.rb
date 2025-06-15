@@ -60,6 +60,14 @@ module Moneyball
         @ratings = T.let(calculate_ratings, T::Array[Rating])
       end
 
+      sig { returns(T::Hash[Symbol, T.any(String, Float, Integer)]) }
+      def to_h
+        {
+          name: name
+        }.merge(general.to_h)
+          .merge(ratings.map { |rating| [rating.coefficient.name.to_sym, rating.value] }.to_h)
+      end
+
       sig { params(player_data: T::Hash[String, String]).returns(Player) }
       def self.build(player_data)
         Entities::Player.new(

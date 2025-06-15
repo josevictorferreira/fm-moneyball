@@ -29,6 +29,11 @@ module Moneyball
           @position = T.let(position, String)
         end
 
+        sig { returns(T::Hash[String, T.any(Integer, String)]) }
+        def to_h
+          { age: age, height: height, position: position }
+        end
+
         sig { params(player_data: T::Hash[String, String]).returns(Entities::PlayerAttributes::General) }
         def self.build(player_data)
           Entities::PlayerAttributes::General.new(

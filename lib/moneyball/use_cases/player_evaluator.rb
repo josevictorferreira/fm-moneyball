@@ -1,8 +1,6 @@
 # typed: strict
 # frozen_string_literal: true
 
-require 'terminal-table'
-
 module Moneyball
   module UseCases
     # PlayerEvaluator is responsible for evaluating player data from a file.
@@ -16,9 +14,7 @@ module Moneyball
 
       sig { void }
       def call
-        table = Terminal::Table.new(headings: headings, rows: table_data)
-
-        puts table
+        build_table.print
       end
 
       sig { params(file_path: String).void }
@@ -28,11 +24,17 @@ module Moneyball
 
       private
 
-      sig { returns(T::Array[T::Array[T.any(String, Integer, Float)]]) }
+      sig { returns(Core::Table) }
+      def build_table
+        Core::Table.new(table_data)
+                   .with_headers(table_headers)
+                   .with_order(:age, :asc)
+                   .with_limit(15)
+      end
+
+      sig { returns(T::Array[T::Hash[Symbol, T.any(String, Integer, Float)]]) }
       def table_data
-        players_data.sort_by! { |p| p.ratings.first&.value }.reverse.take(10).map do |player|
-          [player.name, player.general.age, player.general.height] + player.ratings.map(&:value)
-        end
+        players_data.map(&:to_h)
       end
 
       sig { returns(T::Array[Entities::Player]) }
@@ -40,10 +42,10 @@ module Moneyball
         @players_data ||= T.let(Adapters::Text::Parser.call(@file_path), T.nilable(T::Array[Entities::Player]))
       end
 
-      sig { returns(T::Array[String]) }
-      def headings
-        @headings ||= T.let(%w[Name Age Height] +
-          Entities::Coefficient.from_config.map(&:name), T.nilable(T::Array[String]))
+      sig { returns(T::Array[Symbol]) }
+      def table_headers
+        @table_headers ||= T.let(%i[name age height] +
+          Entities::Coefficient.from_config.map(&:name).map(&:to_sym), T.nilable(T::Array[Symbol]))
       end
     end
   end
