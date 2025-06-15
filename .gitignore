@@ -1,0 +1,7 @@
+.envrc
+
+.bundle/
+.direnv/
+
+/**/*.rtf
+/**/*.html

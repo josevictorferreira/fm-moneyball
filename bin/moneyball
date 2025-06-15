@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'bundler/setup'
+require 'pry'
+require_relative '../lib/moneyball'
+
+Moneyball::UseCases::PlayerEvaluator.call(file_path: ARGV[0])
