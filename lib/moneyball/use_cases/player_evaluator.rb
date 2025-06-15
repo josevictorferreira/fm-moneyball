@@ -16,12 +16,7 @@ module Moneyball
 
       sig { void }
       def call
-        player_data = AdapterFactory.parser_for(:rtf).call(@file_path)
-        player_data.sort_by!(&:rating).reverse!
-        relevant_data = player_data.take(10).map do |player|
-          [player.name, player.rating, player.general.age, player.general.height]
-        end
-        table = Terminal::Table.new(headings: %w[Name Rating Age Height], rows: relevant_data)
+        table = Terminal::Table.new(headings: headings, rows: table_data)
 
         puts table
       end
@@ -29,6 +24,26 @@ module Moneyball
       sig { params(file_path: String).void }
       def self.call(file_path:)
         new(file_path).call
+      end
+
+      private
+
+      sig { returns(T::Array[T::Array[T.any(String, Integer, Float)]]) }
+      def table_data
+        players_data.sort_by! { |p| p.ratings.first&.value }.reverse.take(10).map do |player|
+          [player.name, player.general.age, player.general.height] + player.ratings.map(&:value)
+        end
+      end
+
+      sig { returns(T::Array[Entities::Player]) }
+      def players_data
+        @players_data ||= T.let(Adapters::Text::Parser.call(@file_path), T.nilable(T::Array[Entities::Player]))
+      end
+
+      sig { returns(T::Array[String]) }
+      def headings
+        @headings ||= T.let(%w[Name Age Height] +
+          Entities::Coefficient.from_config.map(&:name), T.nilable(T::Array[String]))
       end
     end
   end

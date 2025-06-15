@@ -1,0 +1,11 @@
+gk_meta:
+  name: GK Meta
+  attributes:
+    physical.agility: 0.014640
+    goal_keeping.reflexes: 0.012837
+    goal_keeping.aerial_reach: 0.011812
+    goal_keeping.throwing: 0.007465
+    goal_keeping.handling: 0.006255
+    goal_keeping.rushing_out: -0.003310
+    mental.composure: 0.007436
+    mental.decisions: 0.005089

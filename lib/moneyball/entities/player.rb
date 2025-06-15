@@ -1,11 +1,13 @@
 # typed: strict
 # frozen_string_literal: true
 
+require_relative '../core/rating_calculator'
+
 # rubocop:disable Metrics/ParameterLists
 module Moneyball
   module Entities
     # Represents a FM player in the Moneyball system.
-    Player = Data.define(:name, :general, :mental, :physical, :goal_keeping, :technical, :rating) do
+    Player = Data.define(:name, :general, :mental, :physical, :goal_keeping, :technical, :ratings) do
       extend T::Sig
 
       sig { returns(String) }
@@ -38,9 +40,9 @@ module Moneyball
         @technical
       end
 
-      sig { returns(Float) }
-      def rating
-        @rating
+      sig { returns(T::Array[Rating]) }
+      def ratings
+        @ratings
       end
 
       sig do
@@ -55,30 +57,7 @@ module Moneyball
         @physical = T.let(physical, PlayerAttributes::Physical)
         @goal_keeping = T.let(goal_keeping, PlayerAttributes::GoalKeeping)
         @technical = T.let(technical, PlayerAttributes::Technical)
-        @rating = T.let(calc_base_rating, Float)
-      end
-
-      sig { returns(Float) }
-      def calc_base_rating
-        coefficients = {
-          'physical.agility' => 0.014640,
-          'goal_keeping.reflexes' => 0.012837,
-          'goal_keeping.aerial_reach' => 0.011812,
-          'goal_keeping.throwing' => 0.007465,
-          'mental.composure' => 0.007436,
-          'goal_keeping.handling' => 0.006255,
-          'mental.decisions' => 0.005089,
-          'goal_keeping.rushing_out' => -0.003310
-        }
-
-        total_weight = coefficients.values.sum
-        weighed_rating = coefficients.keys.map do |attr|
-          attr_value = attr.split('.').reduce(self) do |obj, method_name|
-            obj.public_send(method_name)
-          end
-          attr_value * coefficients[attr]
-        end.sum / total_weight
-        (((weighed_rating - 0.0) / (20.0 - 0.0)) * 100.0).round(2)
+        @ratings = T.let(calculate_ratings, T::Array[Rating])
       end
 
       sig { params(player_data: T::Hash[String, String]).returns(Player) }
@@ -91,6 +70,15 @@ module Moneyball
           goal_keeping: PlayerAttributes::GoalKeeping.build(player_data),
           technical: PlayerAttributes::Technical.build(player_data)
         )
+      end
+
+      private
+
+      sig { returns(T::Array[Rating]) }
+      def calculate_ratings
+        Coefficient.from_config.map do |coefficient|
+          Core::RatingCalculator.call(player: self, coefficient: coefficient)
+        end
       end
     end
   end
