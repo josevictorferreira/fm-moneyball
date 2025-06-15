@@ -7,9 +7,41 @@ module Moneyball
     class PlayerEvaluator
       extend T::Sig
 
-      sig { params(file_path: String).void }
-      def initialize(file_path)
-        @file_path = T.let(file_path, String)
+      # Options class to encapsulate the configuration for player evaluation.
+      class Options
+        extend T::Sig
+
+        sig { returns(String) }
+        attr_accessor :file_path
+
+        sig { returns(T::Array[Symbol]) }
+        attr_accessor :headers
+
+        sig { returns(Symbol) }
+        attr_accessor :sort
+
+        sig { returns(Symbol) }
+        attr_accessor :order
+
+        sig { returns(Integer) }
+        attr_accessor :limit
+
+        sig do
+          params(file_path: String, headers: T::Array[Symbol], sort: Symbol, order: Symbol, limit: Integer).void
+        end
+        def initialize(file_path: '', headers: %i[name age height gk_meta], sort: :desc, order: :age, limit: 10)
+          @file_path = T.let(file_path, String)
+          @headers = T.let(headers, T::Array[Symbol])
+          @sort = T.let(sort, Symbol)
+          @order = T.let(order, Symbol)
+          @limit = T.let(limit, Integer)
+        end
+      end
+
+      sig { params(options: Options).void }
+      def initialize(options)
+        @options = T.let(options, Options)
+        @file_path = T.let(options.file_path, String)
       end
 
       sig { void }
@@ -17,9 +49,9 @@ module Moneyball
         build_table.print
       end
 
-      sig { params(file_path: String).void }
-      def self.call(file_path:)
-        new(file_path).call
+      sig { params(options: Options).void }
+      def self.call(options)
+        new(options).call
       end
 
       private
@@ -27,9 +59,9 @@ module Moneyball
       sig { returns(Core::Table) }
       def build_table
         Core::Table.new(table_data)
-                   .with_headers(table_headers)
-                   .with_order(:age, :asc)
-                   .with_limit(15)
+                   .with_headers(@options.headers)
+                   .with_order(@options.order, @options.sort)
+                   .with_limit(@options.limit)
       end
 
       sig { returns(T::Array[T::Hash[Symbol, T.any(String, Integer, Float)]]) }

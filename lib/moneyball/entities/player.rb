@@ -65,7 +65,7 @@ module Moneyball
         {
           name: name
         }.merge(general.to_h)
-          .merge(ratings.map { |rating| [rating.coefficient.name.to_sym, rating.value] }.to_h)
+          .merge(ratings.map { |rating| [rating.coefficient.id.to_sym, rating.value] }.to_h)
       end
 
       sig { params(player_data: T::Hash[String, String]).returns(Player) }

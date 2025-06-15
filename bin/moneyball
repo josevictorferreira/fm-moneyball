@@ -3,6 +3,42 @@
 
 require 'bundler/setup'
 require 'pry'
+require 'optparse'
 require_relative '../lib/moneyball'
 
-Moneyball::UseCases::PlayerEvaluator.call(file_path: ARGV[0])
+@options = Moneyball::UseCases::PlayerEvaluator::Options.new
+
+OptionParser.new do |opts|
+  opts.on('-f', '--file FILE', 'Path to the player data file, *required') do |file_path|
+    @options.file_path = file_path
+  end
+
+  opts.on('--headers',
+          'Table headers to be displayed(e.g. "name,age,gk_meta"), Default: name,age,height,gk_meta') do |headers|
+    @options.headers = headers.split(',').map(&:strip).map(&:to_sym)
+  end
+
+  opts.on('-s', '--sort SORT', 'Sort order (asc or desc), Default: desc') do |sort|
+    @options.sort = sort.downcase.to_sym
+  end
+
+  opts.on('-o', '--order ORDER', 'Order by field (e.g., age, name), Default: age') do |order|
+    @options.order = order.downcase.to_sym
+  end
+
+  opts.on('-l', '--limit LIMIT', Integer, 'Limit the number of rows displayed. Default: 10') do |limit|
+    @options.limit = limit.to_i
+  end
+
+  opts.on('-h', '--help', 'Display this help message') do
+    puts opts
+    exit
+  end
+end.parse!
+
+if @options.file_path.empty?
+  puts 'Error: File path is required. Use -f or --file to specify the file.'
+  exit 1
+end
+
+Moneyball::UseCases::PlayerEvaluator.call(@options)
