@@ -9,3 +9,111 @@ gk_meta:
     goal_keeping.rushing_out: -0.003310
     mental.composure: 0.007436
     mental.decisions: 0.005089
+
+dlr_meta:
+  name: DLR Meta
+  attributes:
+    physical.pace: 0.018991
+    physical.jumping_reach: 0.014582
+    physical.acceleration: 0.012670
+    mental.anticipation: 0.012269
+    mental.concentration: 0.009911
+    technical.dribbling: 0.008246
+    mental.composure: 0.007720
+    technical.crossing: 0.006812
+
+dc_meta:
+  name: DC Meta
+  attributes:
+    physical.jumping_reach: 0.022608
+    physical.pace: 0.015882
+    physical.acceleration: 0.013536
+    mental.work_rate: 0.010819
+    mental.anticipation: 0.010326
+    mental.positioning: 0.008864
+    technical.passing: 0.008826
+    mental.concentration: 0.008358
+
+wblr_meta:
+  name: WBLR Meta
+  attributes:
+    physical.pace: 0.019196
+    physical.acceleration: 0.018585
+    physical.jumping_reach: 0.013761
+    mental.composure: 0.011762
+    mental.vision: 0.010025
+    technical.crossing: 0.009596
+    mental.work_rate: 0.008166
+    mental.determination: 0.005121
+
+dmc_meta:
+  name: DMC Meta
+  attributes:
+    physical.acceleration: 0.020572
+    mental.anticipation: 0.013047
+    physical.stamina: 0.010352
+    physical.jumping_reach: 0.009796
+    mental.composure: 0.009470
+    technical.passing: 0.009114
+    technical.long_shots: 0.007952
+    technical.dribbling: 0.007338
+
+mlr_meta:
+  name: MLR Meta
+  attributes:
+    physical.pace: 0.020497
+    technical.dribbling: 0.014018
+    physical.acceleration: 0.012883
+    mental.composure: 0.012072
+    mental.vision: 0.011542
+    physical.jumping_reach: 0.011150
+    technical.crossing: 0.010598
+    physical.stamina: 0.009658
+
+mc_meta:
+  name: MC Meta
+  attributes:
+    mental.anticipation: 0.014011
+    physical.acceleration: 0.012595
+    mental.composure: 0.012589
+    physical.pace: 0.012156
+    technical.crossing: 0.010100
+    technical.dribbling: 0.008134
+    physical.jumping_reach: 0.007918
+    physical.strength: 0.006528
+
+amlr_meta:
+  name: AMLR Meta
+  attributes:
+    physical.pace: 0.023458
+    physical.acceleration: 0.019640
+    mental.anticipation: 0.015160
+    technical.crossing: 0.014857
+    technical.dribbling: 0.013533
+    physical.jumping_reach: 0.013029
+    technical.technique: 0.012662
+    mental.composure: 0.012295
+
+amc_meta:
+  name: AMC Meta
+  attributes:
+    physical.pace: 0.016763
+    physical.acceleration: 0.016348
+    mental.concentration: 0.013697
+    mental.composure: 0.012813
+    technical.technique: 0.011647
+    technical.long_shots: 0.009914
+    physical.jumping_reach: 0.009524
+    technical.dribbling: 0.008679
+
+stc_meta:
+  name: STC Meta
+  attributes:
+    physical.jumping_reach: 0.020557
+    physical.pace: 0.020096
+    physical.acceleration: 0.014496
+    mental.concentration: 0.013675
+    physical.balance: 0.012043
+    technical.dribbling: 0.010739
+    mental.vision: 0.009392
+    mental.composure: 0.009161
