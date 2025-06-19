@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+require 'yaml'
 require 'bundler/setup'
 require 'pry'
 require 'optparse'
@@ -31,7 +32,10 @@ OptionParser.new do |opts|
   end
 
   opts.on('-h', '--help', 'Display this help message') do
+    coefficients = Moneyball::Entities::Coefficient.from_config.map(&:id).join(', ')
     puts opts
+    puts
+    puts "Coefficients: #{coefficients}\n"
     exit
   end
 end.parse!
