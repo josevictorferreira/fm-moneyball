@@ -7,7 +7,7 @@ require_relative '../core/rating_calculator'
 module Moneyball
   module Entities
     # Represents a FM player in the Moneyball system.
-    Player = Data.define(:name, :general, :mental, :physical, :goal_keeping, :technical, :ratings) do
+    Player = Data.define(:name, :general, :mental, :physical, :goal_keeping, :technical, :ratings, :best_rating, :second_best_rating) do
       extend T::Sig
 
       sig { returns(String) }
@@ -45,6 +45,16 @@ module Moneyball
         @ratings
       end
 
+      sig { returns(T.nilable(Rating)) }
+      def best_rating
+        @best_rating
+      end
+
+      sig { returns(T.nilable(Rating)) }
+      def second_best_rating
+        @second_best_rating
+      end
+
       sig do
         params(name: String, general: PlayerAttributes::General, mental: PlayerAttributes::Mental,
                physical: PlayerAttributes::Physical, goal_keeping: PlayerAttributes::GoalKeeping,
@@ -57,13 +67,19 @@ module Moneyball
         @physical = T.let(physical, PlayerAttributes::Physical)
         @goal_keeping = T.let(goal_keeping, PlayerAttributes::GoalKeeping)
         @technical = T.let(technical, PlayerAttributes::Technical)
-        @ratings = T.let(calculate_ratings, T::Array[Rating])
+        @ratings = T.let(player_ratings, T::Array[Rating])
+        @best_rating = T.let(player_ratings[0], T.nilable(Rating))
+        @second_best_rating = T.let(player_ratings[1], T.nilable(Rating))
       end
 
       sig { returns(T::Hash[Symbol, T.any(String, Float, Integer)]) }
       def to_h
         {
-          name: name
+          name: name,
+          best_rating: best_rating&.coefficient&.id,
+          best_rating_value: best_rating&.value,
+          second_best_rating: second_best_rating&.coefficient&.id,
+          second_best_rating_value: second_best_rating&.value
         }.merge(general.to_h)
           .merge(ratings.map { |rating| [rating.coefficient.id.to_sym, rating.value] }.to_h)
       end
@@ -83,10 +99,10 @@ module Moneyball
       private
 
       sig { returns(T::Array[Rating]) }
-      def calculate_ratings
-        Coefficient.from_config.map do |coefficient|
+      def player_ratings
+        @player_ratings ||= T.let(Coefficient.from_config.map do |coefficient|
           Core::RatingCalculator.call(player: self, coefficient: coefficient)
-        end
+        end.sort_by(&:value).reverse, T.nilable(T::Array[Rating]))
       end
     end
   end

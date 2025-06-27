@@ -5,8 +5,7 @@ require 'yaml'
 
 module Moneyball
   module Entities
-    # Represents a FM player in the Moneyball system.
-    Coefficient = Data.define(:id, :name, :attributes) do
+    class Coefficient
       extend T::Sig
 
       sig { returns(String) }
@@ -31,10 +30,12 @@ module Moneyball
         @attributes = T.let(attributes, T::Hash[String, T::Array[Float]])
       end
 
-      sig { returns(T::Array[Coefficient]) }
-      def self.from_config
+      sig { params(filters: T::Array[String]).returns(T::Array[Coefficient]) }
+      def self.from_config(filters=[])
         @from_config ||= T.let(YAML.load_file(File.join(ROOT_DIR, 'config', 'coefficients.yaml')).then do |file_content|
-          file_content.map do |key, value|
+          file_content.filter_map do |key, value|
+            next if filters.any? && filters.any? { |filter| !key.to_s.include?(filter) }
+
             new(id: key, name: value.fetch('name', ''), attributes: value.fetch('attributes', {}))
           end
         end, T.nilable(T::Array[Coefficient]))
