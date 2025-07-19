@@ -1,4 +1,4 @@
-gk_meta:
+meta_gk:
   name: GK Meta
   attributes:
     physical.agility: 0.014640
@@ -10,7 +10,7 @@ gk_meta:
     mental.composure: 0.007436
     mental.decisions: 0.005089
 
-dlr_meta:
+meta_dlr:
   name: DLR Meta
   attributes:
     physical.pace: 0.018991
@@ -22,7 +22,7 @@ dlr_meta:
     mental.composure: 0.007720
     technical.crossing: 0.006812
 
-dc_meta:
+meta_dc_m:
   name: DC Meta
   attributes:
     physical.jumping_reach: 0.022608
@@ -34,7 +34,7 @@ dc_meta:
     technical.passing: 0.008826
     mental.concentration: 0.008358
 
-wblr_meta:
+meta_wblr:
   name: WBLR Meta
   attributes:
     physical.pace: 0.019196
@@ -46,7 +46,7 @@ wblr_meta:
     mental.work_rate: 0.008166
     mental.determination: 0.005121
 
-dmc_meta:
+meta_dmc:
   name: DMC Meta
   attributes:
     physical.acceleration: 0.020572
@@ -58,7 +58,7 @@ dmc_meta:
     technical.long_shots: 0.007952
     technical.dribbling: 0.007338
 
-mlr_meta:
+meta_mlr:
   name: MLR Meta
   attributes:
     physical.pace: 0.020497
@@ -70,7 +70,7 @@ mlr_meta:
     technical.crossing: 0.010598
     physical.stamina: 0.009658
 
-mc_meta:
+meta_mc:
   name: MC Meta
   attributes:
     mental.anticipation: 0.014011
@@ -82,7 +82,7 @@ mc_meta:
     physical.jumping_reach: 0.007918
     physical.strength: 0.006528
 
-amlr_meta:
+meta_amlr:
   name: AMLR Meta
   attributes:
     physical.pace: 0.023458
@@ -94,7 +94,7 @@ amlr_meta:
     technical.technique: 0.012662
     mental.composure: 0.012295
 
-amc_meta:
+meta_amc:
   name: AMC Meta
   attributes:
     physical.pace: 0.016763
@@ -106,7 +106,7 @@ amc_meta:
     physical.jumping_reach: 0.009524
     technical.dribbling: 0.008679
 
-stc_meta:
+meta_stc:
   name: STC Meta
   attributes:
     physical.jumping_reach: 0.020557
@@ -118,7 +118,7 @@ stc_meta:
     mental.vision: 0.009392
     mental.composure: 0.009161
 
-gk_ml:
+tweak_gk:
   name: GK ML
   attributes:
     physical.agility: 0.012505
@@ -130,7 +130,7 @@ gk_ml:
     goal_keeping.rushing_out: -0.006245
     physical.pace: 0.004643
 
-dlr_ml:
+tweak_dlr:
   name: DLR ML
   attributes:
     physical.acceleration: 0.013597
@@ -142,7 +142,7 @@ dlr_ml:
     mental.composure: 0.007745
     mental.concentration: 0.007133
 
-dc_ml:
+tweak_dc:
   name: DC ML
   attributes:
     physical.jumping_reach: 0.019070
@@ -154,7 +154,7 @@ dc_ml:
     mental.vision: 0.008293
     mental.flair: 0.007868
 
-wblr_ml:
+tweak_wblr:
   name: WBLR ML
   attributes:
     physical.pace: 0.017325
@@ -166,7 +166,7 @@ wblr_ml:
     physical.acceleration: 0.008873
     technical.dribbling: 0.008574
 
-dmc_ml:
+tweak_dmc:
   name: DMC ML
   attributes:
     physical.pace: 0.014999
@@ -178,7 +178,7 @@ dmc_ml:
     mental.vision: 0.007703
     mental.work_rate: 0.007163
 
-mlr_ml:
+tweak_mlr:
   name: MLR ML
   attributes:
     physical.pace: 0.021969
@@ -190,7 +190,7 @@ mlr_ml:
     technical.crossing: 0.008961
     physical.jumping_reach: 0.008427
 
-mc_ml:
+tweak_mc:
   name: MC ML
   attributes:
     physical.pace: 0.016960
@@ -202,7 +202,7 @@ mc_ml:
     technical.crossing: 0.009064
     physical.jumping_reach: 0.006533
 
-amlr_ml:
+tweak_amlr:
   name: AMLR ML
   attributes:
     physical.pace: 0.025619
@@ -214,7 +214,7 @@ amlr_ml:
     physical.jumping_reach: 0.009989
     mental.concentration: 0.009832
 
-amc_ml:
+tweak_amc:
   name: AMC ML
   attributes:
     physical.pace: 0.019289
@@ -226,7 +226,7 @@ amc_ml:
     technical.long_shots: 0.009488
     physical.jumping_reach: 0.007665
 
-stc_ml:
+tweak_stc:
   name: STC ML
   attributes:
     physical.pace: 0.021277
@@ -237,3 +237,891 @@ stc_ml:
     technical.crossing: 0.009884
     mental.concentration: 0.009881
     physical.balance: 0.007499
+
+game_gk_goalkeeper_defend:
+  name: GK Goalkeeper Defend
+  attributes:
+    goal_keeping.reflexes: 0.018
+    goal_keeping.aerial_reach: 0.016
+    goal_keeping.handling: 0.014
+    mental.positioning: 0.012
+    mental.decisions: 0.011
+    goal_keeping.one_on_ones: 0.010
+    physical.agility: 0.009
+    physical.jumping_reach: 0.008
+
+game_gk_sweeper_keeper_support:
+  name: GK Sweeper-Keeper Support
+  attributes:
+    goal_keeping.rushing_out: 0.017
+    goal_keeping.reflexes: 0.016
+    goal_keeping.aerial_reach: 0.014
+    physical.acceleration: 0.013
+    technical.passing: 0.012
+    technical.first_touch: 0.011
+    mental.decisions: 0.010
+    physical.agility: 0.009
+
+game_gk_sweeper_keeper_attack:
+  name: GK Sweeper-Keeper Attack
+  attributes:
+    goal_keeping.rushing_out: 0.018
+    physical.acceleration: 0.017
+    physical.pace: 0.016
+    technical.passing: 0.014
+    goal_keeping.reflexes: 0.013
+    technical.first_touch: 0.012
+    mental.decisions: 0.010
+    physical.agility: 0.009
+
+game_gk_sweeper_keeper_defend:
+  name: GK Sweeper-Keeper Defend
+  attributes:
+    goal_keeping.aerial_reach: 0.017
+    goal_keeping.reflexes: 0.016
+    goal_keeping.handling: 0.015
+    goal_keeping.rushing_out: 0.014
+    mental.positioning: 0.013
+    technical.passing: 0.012
+    physical.agility: 0.010
+    physical.jumping_reach: 0.009
+
+game_dc_central_defender_defend:
+  name: DC Central Defender Defend
+  attributes:
+    physical.jumping_reach: 0.028
+    mental.positioning: 0.020
+    technical.tackling: 0.018
+    technical.marking: 0.017
+    mental.concentration: 0.016
+    physical.strength: 0.015
+    physical.acceleration: 0.014
+    physical.pace: 0.012
+
+game_dc_central_defender_stopper:
+  name: DC Central Defender Stopper
+  attributes:
+    technical.tackling: 0.024
+    mental.aggression: 0.018
+    physical.jumping_reach: 0.018
+    physical.strength: 0.017
+    physical.acceleration: 0.015
+    mental.anticipation: 0.014
+    technical.marking: 0.014
+    physical.pace: 0.013
+
+game_dc_central_defender_cover:
+  name: DC Central Defender Cover
+  attributes:
+    physical.acceleration: 0.024
+    physical.pace: 0.022
+    physical.jumping_reach: 0.021
+    mental.positioning: 0.018
+    mental.anticipation: 0.017
+    technical.tackling: 0.016
+    mental.concentration: 0.016
+    mental.decisions: 0.014
+
+game_dc_ball_playing_defender_defend:
+  name: DC Ball-Playing Defender Defend
+  attributes:
+    physical.jumping_reach: 0.026
+    technical.passing: 0.022
+    technical.technique: 0.018
+    mental.vision: 0.017
+    mental.positioning: 0.016
+    technical.tackling: 0.015
+    physical.acceleration: 0.014
+    physical.pace: 0.013
+
+game_dc_ball_playing_defender_cover:
+  name: DC Ball-Playing Defender Cover
+  attributes:
+    physical.acceleration: 0.025
+    physical.pace: 0.024
+    physical.jumping_reach: 0.021
+    mental.anticipation: 0.017
+    technical.passing: 0.015
+    mental.positioning: 0.014
+    technical.tackling: 0.013
+    mental.decisions: 0.012
+
+game_dc_ball_playing_defender_stopper:
+  name: DC Ball-Playing Defender Stopper
+  attributes:
+    technical.tackling: 0.024
+    mental.aggression: 0.019
+    physical.jumping_reach: 0.018
+    technical.passing: 0.018
+    physical.strength: 0.017
+    physical.acceleration: 0.017
+    mental.positioning: 0.016
+    physical.pace: 0.015
+
+game_dc_libero_support:
+  name: DC Libero Support
+  attributes:
+    physical.acceleration: 0.025
+    physical.pace: 0.023
+    technical.passing: 0.022
+    mental.vision: 0.020
+    technical.technique: 0.018
+    mental.anticipation: 0.017
+    physical.jumping_reach: 0.016
+    physical.agility: 0.014
+
+game_dc_libero_attack:
+  name: DC Libero Attack
+  attributes:
+    physical.acceleration: 0.026
+    physical.pace: 0.025
+    technical.passing: 0.023
+    mental.vision: 0.022
+    technical.dribbling: 0.020
+    technical.technique: 0.020
+    mental.anticipation: 0.018
+    physical.agility: 0.017
+
+game_dl_dr_full_back_defend:
+  name: DL/DR Full-Back Defend
+  attributes:
+    physical.pace: 0.024
+    physical.acceleration: 0.022
+    technical.tackling: 0.018
+    mental.positioning: 0.017
+    technical.crossing: 0.015
+    mental.anticipation: 0.014
+    physical.jumping_reach: 0.013
+    physical.agility: 0.012
+
+game_dl_dr_full_back_support:
+  name: DL/DR Full-Back Support
+  attributes:
+    physical.pace: 0.025
+    physical.acceleration: 0.023
+    technical.crossing: 0.019
+    mental.work_rate: 0.017
+    mental.anticipation: 0.016
+    technical.tackling: 0.015
+    technical.technique: 0.013
+    physical.agility: 0.012
+
+game_dl_dr_full_back_attack:
+  name: DL/DR Full-Back Attack
+  attributes:
+    physical.pace: 0.026
+    physical.acceleration: 0.025
+    technical.crossing: 0.021
+    technical.dribbling: 0.020
+    technical.technique: 0.018
+    mental.anticipation: 0.017
+    physical.agility: 0.017
+    mental.work_rate: 0.016
+
+game_dl_dr_wing_back_defend:
+  name: DL/DR Wing-Back Defend
+  attributes:
+    physical.pace: 0.025
+    physical.acceleration: 0.023
+    technical.tackling: 0.021
+    mental.positioning: 0.019
+    technical.crossing: 0.017
+    mental.anticipation: 0.017
+    physical.agility: 0.016
+    physical.strength: 0.015
+
+game_dl_dr_wing_back_support:
+  name: DL/DR Wing-Back Support
+  attributes:
+    physical.pace: 0.026
+    physical.acceleration: 0.024
+    technical.crossing: 0.020
+    technical.dribbling: 0.019
+    mental.anticipation: 0.018
+    technical.technique: 0.018
+    physical.agility: 0.017
+    technical.tackling: 0.016
+
+game_dl_dr_wing_back_attack:
+  name: DL/DR Wing-Back Attack
+  attributes:
+    physical.pace: 0.028
+    physical.acceleration: 0.025
+    technical.dribbling: 0.021
+    technical.crossing: 0.020
+    technical.technique: 0.018
+    mental.anticipation: 0.017
+    physical.agility: 0.016
+    physical.jumping_reach: 0.014
+
+game_dl_dr_inverted_wing_back_defend:
+  name: DL/DR Inverted Wing-Back Defend
+  attributes:
+    physical.pace: 0.025
+    physical.acceleration: 0.024
+    mental.positioning: 0.020
+    technical.passing: 0.020
+    mental.decisions: 0.019
+    technical.tackling: 0.018
+    technical.technique: 0.017
+    physical.agility: 0.016
+
+game_dl_dr_inverted_wing_back_support:
+  name: DL/DR Inverted Wing-Back Support
+  attributes:
+    physical.pace: 0.026
+    physical.acceleration: 0.024
+    technical.passing: 0.019
+    technical.technique: 0.018
+    mental.decisions: 0.017
+    technical.dribbling: 0.016
+    mental.anticipation: 0.015
+    physical.agility: 0.014
+
+game_dl_dr_inverted_wing_back_attack:
+  name: DL/DR Inverted Wing-Back Attack
+  attributes:
+    physical.pace: 0.027
+    physical.acceleration: 0.025
+    technical.dribbling: 0.022
+    technical.passing: 0.021
+    technical.technique: 0.020
+    mental.anticipation: 0.019
+    physical.agility: 0.018
+    mental.off_the_ball: 0.017
+
+game_dl_dr_complete_wing_back_attack:
+  name: DL/DR Complete Wing-Back Attack
+  attributes:
+    physical.pace: 0.029
+    physical.acceleration: 0.027
+    technical.dribbling: 0.022
+    technical.crossing: 0.020
+    technical.technique: 0.019
+    mental.anticipation: 0.017
+    mental.off_the_ball: 0.016
+    physical.agility: 0.015
+
+game_dl_dr_complete_wing_back_support:
+  name: DL/DR Complete Wing-Back Support
+  attributes:
+    physical.pace: 0.028
+    physical.acceleration: 0.026
+    technical.dribbling: 0.022
+    technical.crossing: 0.021
+    technical.technique: 0.020
+    mental.off_the_ball: 0.018
+    mental.anticipation: 0.017
+    physical.agility: 0.017
+
+game_dmc_defensive_midfielder_defend:
+  name: DMC Defensive Midfielder Defend
+  attributes:
+    technical.tackling: 0.022
+    mental.positioning: 0.020
+    mental.anticipation: 0.018
+    mental.concentration: 0.017
+    physical.pace: 0.017
+    physical.acceleration: 0.016
+    physical.strength: 0.015
+    technical.passing: 0.013
+
+game_dmc_defensive_midfielder_support:
+  name: DMC Defensive Midfielder Support
+  attributes:
+    mental.positioning: 0.021
+    technical.tackling: 0.020
+    mental.anticipation: 0.018
+    technical.passing: 0.018
+    physical.pace: 0.018
+    physical.acceleration: 0.017
+    physical.strength: 0.016
+    mental.vision: 0.015
+
+game_dmc_anchor_defend:
+  name: DMC Anchor Defend
+  attributes:
+    mental.positioning: 0.023
+    technical.tackling: 0.021
+    mental.concentration: 0.019
+    mental.anticipation: 0.018
+    physical.pace: 0.017
+    physical.acceleration: 0.016
+    physical.strength: 0.015
+    technical.passing: 0.012
+
+game_dmc_ball_winning_midfielder_support:
+  name: DMC Ball-Winning Midfielder Support
+  attributes:
+    technical.tackling: 0.025
+    mental.work_rate: 0.021
+    physical.pace: 0.020
+    physical.acceleration: 0.018
+    mental.anticipation: 0.017
+    mental.aggression: 0.015
+    physical.strength: 0.015
+    technical.passing: 0.013
+
+game_dmc_ball_winning_midfielder_defend:
+  name: DMC Ball-Winning Midfielder Defend
+  attributes:
+    technical.tackling: 0.027
+    mental.work_rate: 0.022
+    mental.positioning: 0.020
+    physical.pace: 0.020
+    physical.acceleration: 0.019
+    mental.aggression: 0.018
+    mental.anticipation: 0.017
+    physical.strength: 0.016
+
+game_dmc_deep_lying_playmaker_support:
+  name: DMC Deep-Lying Playmaker Support
+  attributes:
+    technical.passing: 0.024
+    mental.vision: 0.022
+    technical.technique: 0.020
+    mental.anticipation: 0.017
+    mental.composure: 0.016
+    physical.pace: 0.015
+    physical.acceleration: 0.014
+    technical.first_touch: 0.013
+
+game_dmc_deep_lying_playmaker_defend:
+  name: DMC Deep-Lying Playmaker Defend
+  attributes:
+    technical.passing: 0.024
+    mental.vision: 0.023
+    technical.technique: 0.021
+    mental.positioning: 0.019
+    mental.anticipation: 0.018
+    physical.pace: 0.017
+    physical.acceleration: 0.016
+    technical.first_touch: 0.015
+
+game_dmc_regista_support:
+  name: DMC Regista Support
+  attributes:
+    mental.vision: 0.025
+    technical.passing: 0.024
+    technical.technique: 0.022
+    mental.off_the_ball: 0.018
+    technical.first_touch: 0.017
+    physical.pace: 0.016
+    physical.acceleration: 0.015
+    mental.anticipation: 0.014
+
+game_dmc_half_back_defend:
+  name: DMC Half-Back Defend
+  attributes:
+    mental.positioning: 0.023
+    technical.tackling: 0.021
+    mental.anticipation: 0.018
+    technical.passing: 0.017
+    physical.pace: 0.017
+    physical.acceleration: 0.016
+    mental.composure: 0.015
+    mental.decisions: 0.014
+
+game_dmc_volante_support:
+  name: DMC Volante Support
+  attributes:
+    physical.pace: 0.022
+    physical.acceleration: 0.021
+    mental.off_the_ball: 0.018
+    technical.dribbling: 0.017
+    technical.passing: 0.017
+    mental.vision: 0.016
+    mental.anticipation: 0.015
+    technical.technique: 0.014
+
+game_dmc_volante_attack:
+  name: DMC Volante Attack
+  attributes:
+    physical.pace: 0.024
+    physical.acceleration: 0.023
+    mental.off_the_ball: 0.020
+    technical.dribbling: 0.019
+    technical.passing: 0.018
+    mental.vision: 0.017
+    technical.technique: 0.016
+    mental.anticipation: 0.015
+
+game_mc_central_midfielder_support:
+  name: MC Central Midfielder Support
+  attributes:
+    physical.pace: 0.021
+    physical.acceleration: 0.019
+    technical.passing: 0.019
+    mental.vision: 0.018
+    technical.first_touch: 0.017
+    mental.work_rate: 0.016
+    mental.anticipation: 0.015
+    mental.off_the_ball: 0.014
+
+game_mc_central_midfielder_defend:
+  name: MC Central Midfielder Defend
+  attributes:
+    technical.tackling: 0.023
+    mental.positioning: 0.021
+    mental.work_rate: 0.019
+    physical.pace: 0.019
+    physical.acceleration: 0.018
+    mental.anticipation: 0.017
+    technical.passing: 0.015
+    physical.strength: 0.015
+
+game_mc_central_midfielder_attack:
+  name: MC Central Midfielder Attack
+  attributes:
+    physical.pace: 0.023
+    physical.acceleration: 0.022
+    mental.off_the_ball: 0.021
+    technical.dribbling: 0.020
+    technical.passing: 0.020
+    technical.technique: 0.019
+    mental.vision: 0.018
+    mental.anticipation: 0.017
+
+game_mc_box_to_box_midfielder_support:
+  name: MC Box-to-Box Midfielder Support
+  attributes:
+    physical.pace: 0.024
+    physical.acceleration: 0.023
+    mental.work_rate: 0.020
+    technical.technique: 0.018
+    technical.tackling: 0.017
+    mental.anticipation: 0.016
+    technical.dribbling: 0.015
+    technical.passing: 0.015
+
+game_mc_advanced_playmaker_attack:
+  name: MC Advanced Playmaker Attack
+  attributes:
+    mental.vision: 0.025
+    technical.passing: 0.024
+    technical.technique: 0.022
+    physical.pace: 0.019
+    physical.acceleration: 0.018
+    technical.first_touch: 0.018
+    mental.flair: 0.017
+    technical.dribbling: 0.015
+
+game_mc_advanced_playmaker_support:
+  name: MC Advanced Playmaker Support
+  attributes:
+    mental.vision: 0.026
+    technical.passing: 0.024
+    technical.technique: 0.022
+    physical.pace: 0.020
+    physical.acceleration: 0.019
+    technical.first_touch: 0.019
+    mental.off_the_ball: 0.018
+    mental.anticipation: 0.016
+
+game_mc_mezzala_attack:
+  name: MC Mezzala Attack
+  attributes:
+    physical.pace: 0.024
+    physical.acceleration: 0.023
+    mental.off_the_ball: 0.020
+    technical.passing: 0.019
+    technical.technique: 0.018
+    mental.vision: 0.017
+    technical.dribbling: 0.017
+    mental.anticipation: 0.015
+
+game_mc_mezzala_support:
+  name: MC Mezzala Support
+  attributes:
+    physical.pace: 0.023
+    physical.acceleration: 0.022
+    technical.passing: 0.021
+    mental.off_the_ball: 0.020
+    technical.technique: 0.019
+    mental.vision: 0.019
+    technical.dribbling: 0.018
+    mental.anticipation: 0.016
+
+game_mc_carrilero_support:
+  name: MC Carrilero Support
+  attributes:
+    physical.pace: 0.022
+    physical.acceleration: 0.021
+    mental.work_rate: 0.019
+    mental.positioning: 0.018
+    technical.passing: 0.017
+    technical.tackling: 0.016
+    mental.anticipation: 0.016
+    mental.vision: 0.015
+
+game_mc_ball_winning_midfielder_support:
+  name: MC Ball-Winning Midfielder Support
+  attributes:
+    technical.tackling: 0.025
+    mental.work_rate: 0.021
+    physical.pace: 0.021
+    physical.acceleration: 0.020
+    mental.positioning: 0.018
+    mental.aggression: 0.017
+    mental.anticipation: 0.017
+    technical.passing: 0.015
+
+game_mc_ball_winning_midfielder_defend:
+  name: MC Ball-Winning Midfielder Defend
+  attributes:
+    technical.tackling: 0.027
+    mental.work_rate: 0.022
+    mental.positioning: 0.020
+    physical.pace: 0.021
+    physical.acceleration: 0.020
+    mental.aggression: 0.018
+    mental.anticipation: 0.017
+    technical.passing: 0.015
+
+game_mc_roaming_playmaker_support:
+  name: MC Roaming Playmaker Support
+  attributes:
+    physical.pace: 0.024
+    physical.acceleration: 0.023
+    technical.dribbling: 0.020
+    technical.passing: 0.020
+    mental.vision: 0.019
+    technical.technique: 0.018
+    mental.off_the_ball: 0.017
+    mental.anticipation: 0.016
+
+game_aml_amr_winger_attack:
+  name: AM(L/R) Winger Attack
+  attributes:
+    physical.pace: 0.028
+    physical.acceleration: 0.027
+    technical.dribbling: 0.024
+    technical.crossing: 0.022
+    mental.off_the_ball: 0.020
+    technical.technique: 0.019
+    mental.anticipation: 0.018
+    physical.agility: 0.017
+
+game_aml_amr_winger_support:
+  name: AM(L/R) Winger Support
+  attributes:
+    physical.pace: 0.027
+    physical.acceleration: 0.026
+    technical.crossing: 0.023
+    technical.dribbling: 0.022
+    mental.off_the_ball: 0.020
+    technical.technique: 0.019
+    mental.anticipation: 0.018
+    physical.agility: 0.017
+
+game_aml_amr_inverted_winger_support:
+  name: AM(L/R) Inverted Winger Support
+  attributes:
+    physical.pace: 0.026
+    physical.acceleration: 0.025
+    technical.dribbling: 0.023
+    technical.passing: 0.021
+    technical.technique: 0.020
+    mental.vision: 0.019
+    mental.off_the_ball: 0.018
+    physical.agility: 0.017
+
+game_aml_amr_inverted_winger_attack:
+  name: AM(L/R) Inverted Winger Attack
+  attributes:
+    physical.pace: 0.027
+    physical.acceleration: 0.026
+    technical.dribbling: 0.024
+    technical.finishing: 0.021
+    technical.technique: 0.021
+    mental.off_the_ball: 0.020
+    mental.vision: 0.019
+    physical.agility: 0.017
+
+game_aml_amr_inside_forward_attack:
+  name: AM(L/R) Inside Forward Attack
+  attributes:
+    physical.pace: 0.027
+    physical.acceleration: 0.026
+    technical.dribbling: 0.024
+    technical.finishing: 0.022
+    mental.off_the_ball: 0.021
+    technical.technique: 0.020
+    technical.long_shots: 0.018
+    physical.agility: 0.017
+
+game_aml_amr_inside_forward_support:
+  name: AM(L/R) Inside Forward Support
+  attributes:
+    physical.pace: 0.026
+    physical.acceleration: 0.025
+    technical.dribbling: 0.023
+    mental.vision: 0.021
+    technical.passing: 0.021
+    mental.off_the_ball: 0.020
+    technical.technique: 0.019
+    physical.agility: 0.017
+
+game_aml_amr_wide_advanced_playmaker_support:
+  name: AM(L/R) Wide Advanced Playmaker Support
+  attributes:
+    mental.vision: 0.026
+    technical.passing: 0.024
+    technical.technique: 0.022
+    physical.pace: 0.023
+    physical.acceleration: 0.022
+    technical.dribbling: 0.020
+    mental.off_the_ball: 0.018
+    technical.first_touch: 0.017
+
+game_aml_amr_wide_advanced_playmaker_attack:
+  name: AM(L/R) Wide Advanced Playmaker Attack
+  attributes:
+    mental.vision: 0.027
+    technical.passing: 0.025
+    technical.technique: 0.023
+    physical.pace: 0.024
+    physical.acceleration: 0.023
+    technical.dribbling: 0.021
+    mental.off_the_ball: 0.019
+    technical.first_touch: 0.018
+
+game_aml_amr_raumdeuter_attack:
+  name: AM(L/R) Raumdeuter Attack
+  attributes:
+    mental.off_the_ball: 0.027
+    physical.pace: 0.026
+    physical.acceleration: 0.025
+    mental.anticipation: 0.022
+    technical.finishing: 0.021
+    physical.agility: 0.018
+    mental.vision: 0.016
+    mental.composure: 0.015
+
+game_amc_attacking_midfielder_attack:
+  name: AMC Attacking Midfielder Attack
+  attributes:
+    physical.pace: 0.023
+    physical.acceleration: 0.022
+    mental.off_the_ball: 0.021
+    technical.dribbling: 0.020
+    technical.finishing: 0.018
+    technical.technique: 0.018
+    technical.passing: 0.017
+    mental.vision: 0.017
+
+game_amc_attacking_midfielder_support:
+  name: AMC Attacking Midfielder Support
+  attributes:
+    physical.pace: 0.022
+    physical.acceleration: 0.021
+    mental.off_the_ball: 0.020
+    mental.vision: 0.020
+    technical.dribbling: 0.019
+    technical.passing: 0.019
+    technical.technique: 0.018
+    technical.first_touch: 0.017
+
+game_amc_advanced_playmaker_attack:
+  name: AMC Advanced Playmaker Attack
+  attributes:
+    mental.vision: 0.026
+    technical.passing: 0.024
+    technical.technique: 0.022
+    physical.pace: 0.021
+    physical.acceleration: 0.020
+    technical.first_touch: 0.020
+    mental.off_the_ball: 0.018
+    mental.anticipation: 0.016
+
+game_amc_advanced_playmaker_support:
+  name: AMC Advanced Playmaker Support
+  attributes:
+    mental.vision: 0.027
+    technical.passing: 0.025
+    technical.technique: 0.023
+    physical.pace: 0.021
+    physical.acceleration: 0.020
+    technical.first_touch: 0.020
+    mental.off_the_ball: 0.018
+    mental.anticipation: 0.017
+
+game_amc_shadow_striker_attack:
+  name: AMC Shadow Striker Attack
+  attributes:
+    physical.pace: 0.027
+    physical.acceleration: 0.026
+    mental.off_the_ball: 0.024
+    technical.finishing: 0.022
+    mental.anticipation: 0.021
+    technical.dribbling: 0.020
+    technical.technique: 0.018
+    physical.agility: 0.017
+
+game_amc_enganche_support:
+  name: AMC Enganche Support
+  attributes:
+    mental.vision: 0.027
+    technical.technique: 0.025
+    technical.passing: 0.024
+    technical.first_touch: 0.022
+    mental.flair: 0.020
+    mental.composure: 0.018
+    mental.off_the_ball: 0.017
+    physical.pace: 0.015
+
+game_amc_trequartista_attack:
+  name: AMC Trequartista Attack
+  attributes:
+    mental.vision: 0.027
+    mental.off_the_ball: 0.025
+    technical.passing: 0.024
+    technical.technique: 0.022
+    physical.pace: 0.021
+    physical.acceleration: 0.020
+    technical.dribbling: 0.019
+    mental.flair: 0.018
+
+game_stc_advanced_forward_attack:
+  name: STC Advanced Forward Attack
+  attributes:
+    physical.pace: 0.028
+    physical.acceleration: 0.027
+    technical.finishing: 0.024
+    mental.off_the_ball: 0.022
+    mental.anticipation: 0.021
+    technical.dribbling: 0.020
+    mental.composure: 0.018
+    physical.jumping_reach: 0.017
+
+game_stc_complete_forward_attack:
+  name: STC Complete Forward Attack
+  attributes:
+    physical.pace: 0.027
+    physical.acceleration: 0.026
+    physical.strength: 0.023
+    technical.finishing: 0.022
+    mental.off_the_ball: 0.021
+    technical.dribbling: 0.020
+    technical.passing: 0.018
+    mental.anticipation: 0.017
+
+game_stc_complete_forward_support:
+  name: STC Complete Forward Support
+  attributes:
+    physical.pace: 0.026
+    physical.acceleration: 0.025
+    technical.passing: 0.022
+    mental.vision: 0.021
+    technical.finishing: 0.020
+    physical.strength: 0.019
+    mental.off_the_ball: 0.018
+    mental.anticipation: 0.017
+
+game_stc_deep_lying_forward_support:
+  name: STC Deep-Lying Forward Support
+  attributes:
+    technical.passing: 0.024
+    mental.vision: 0.023
+    technical.first_touch: 0.021
+    mental.off_the_ball: 0.020
+    physical.pace: 0.020
+    physical.acceleration: 0.019
+    technical.finishing: 0.018
+    mental.composure: 0.017
+
+game_stc_deep_lying_forward_attack:
+  name: STC Deep-Lying Forward Attack
+  attributes:
+    technical.passing: 0.023
+    mental.vision: 0.022
+    technical.finishing: 0.021
+    physical.pace: 0.021
+    physical.acceleration: 0.020
+    mental.off_the_ball: 0.020
+    technical.first_touch: 0.019
+    technical.technique: 0.018
+
+game_stc_poacher_attack:
+  name: STC Poacher Attack
+  attributes:
+    technical.finishing: 0.027
+    mental.off_the_ball: 0.024
+    physical.pace: 0.024
+    physical.acceleration: 0.023
+    mental.anticipation: 0.022
+    mental.composure: 0.020
+    physical.jumping_reach: 0.018
+    physical.balance: 0.015
+
+game_stc_pressing_forward_attack:
+  name: STC Pressing Forward Attack
+  attributes:
+    mental.work_rate: 0.024
+    physical.pace: 0.024
+    physical.acceleration: 0.023
+    mental.aggression: 0.021
+    physical.strength: 0.020
+    mental.off_the_ball: 0.019
+    mental.anticipation: 0.017
+    technical.finishing: 0.015
+
+game_stc_pressing_forward_defend_game:
+  name: STC Pressing Forward Defend
+  attributes:
+    mental.work_rate: 0.025
+    physical.pace: 0.024
+    physical.acceleration: 0.023
+    mental.aggression: 0.022
+    physical.strength: 0.021
+    mental.off_the_ball: 0.020
+    mental.anticipation: 0.018
+    technical.finishing: 0.015
+
+game_stc_pressing_forward_support_game:
+  name: STC Pressing Forward Support
+  attributes:
+    mental.work_rate: 0.024
+    physical.pace: 0.024
+    physical.acceleration: 0.023
+    mental.off_the_ball: 0.021
+    mental.aggression: 0.020
+    physical.strength: 0.019
+    mental.anticipation: 0.018
+    technical.finishing: 0.016
+
+game_stc_target_forward_support_game:
+  name: STC Target Forward Support
+  attributes:
+    physical.jumping_reach: 0.027
+    physical.strength: 0.024
+    technical.finishing: 0.020
+    technical.heading: 0.019
+    physical.pace: 0.019
+    physical.acceleration: 0.018
+    mental.anticipation: 0.017
+    mental.off_the_ball: 0.017
+
+game_stc_target_forward_attack_game:
+  name: STC Target Forward Attack
+  attributes:
+    physical.jumping_reach: 0.028
+    physical.strength: 0.025
+    technical.finishing: 0.022
+    technical.heading: 0.021
+    physical.pace: 0.020
+    physical.acceleration: 0.019
+    mental.off_the_ball: 0.018
+    mental.anticipation: 0.017
+
+game_stc_false_nine_support_game:
+  name: STC False Nine Support
+  attributes:
+    mental.vision: 0.024
+    technical.passing: 0.023
+    mental.off_the_ball: 0.021
+    technical.first_touch: 0.020
+    technical.technique: 0.019
+    physical.pace: 0.019
+    physical.acceleration: 0.018
+    technical.finishing: 0.017

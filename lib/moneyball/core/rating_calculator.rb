@@ -27,12 +27,14 @@ module Moneyball
 
       sig { returns(Float) }
       def weighed_rating
-        total_weight = @coefficient.attributes.values.sum
+        total_weight = @coefficient.attributes.values.compact.sum
         @coefficient.attributes.keys.map do |attr|
           attr_value = attr.split('.').reduce(@player) do |obj, method_name|
             obj.public_send(method_name)
           end
           attr_value * @coefficient.attributes[attr]
+        rescue StandardError => e
+          puts "Error calculating weighed rating for #{attr}: #{e.message}"
         end.sum / total_weight
       end
 
