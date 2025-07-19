@@ -34,10 +34,14 @@ module Moneyball
     class TableConfig
       extend T::Sig
 
+      DEFAULT_LIMIT = 10_000
+      DEFAULT_ORDER = nil
+      DEFAULT_FILTER = nil
+
       sig { returns(T::Array[Symbol]) }
       attr_accessor :headers
 
-      sig { returns(TableOrder) }
+      sig { returns(T.nilable(TableOrder)) }
       attr_accessor :order
 
       sig { returns(Integer) }
@@ -47,18 +51,18 @@ module Moneyball
       attr_accessor :filter
 
       sig do
-        params(headers: T::Array[Symbol], order: TableOrder, limit: Integer, filter: T.nilable(String)).void
+        params(headers: T::Array[Symbol], order: T.nilable(TableOrder), limit: Integer, filter: T.nilable(String)).void
       end
-      def initialize(headers:, order:, limit: 10, filter: nil)
+      def initialize(headers:, order: DEFAULT_ORDER, limit: DEFAULT_LIMIT, filter: DEFAULT_FILTER)
         @headers = T.let(headers, T::Array[Symbol])
-        @order = T.let(order, TableOrder)
+        @order = T.let(order, T.nilable(TableOrder))
         @limit = T.let(limit, Integer)
         @filter = T.let(filter, T.nilable(String))
       end
 
       sig { returns(TableConfig) }
       def self.default
-        new(headers: %i[name age height], order: TableOrder.default, limit: 10, filter: nil)
+        new(headers: %i[name age height], order: DEFAULT_ORDER, limit: DEFAULT_LIMIT, filter: DEFAULT_FILTER)
       end
     end
 
@@ -147,11 +151,13 @@ module Moneyball
 
       sig { void }
       def sort_data!
-        return if @config.order.nil? || @config.order.sort_by.nil?
+        order = @config.order
 
-        @table_rows.sort_by! { |row| row[@config.order.sort_by] }
+        return if order.nil?
 
-        @table_rows = @table_rows.reverse if @config.order.direction == :desc
+        @table_rows.sort_by! { |row| row.fetch(order.sort_by, '') }
+
+        @table_rows = @table_rows.reverse if order.direction == :desc
       end
 
       sig { void }

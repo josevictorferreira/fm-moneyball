@@ -31,7 +31,8 @@ OptionParser.new do |opts|
     @options.limit = limit.to_i
   end
 
-  opts.on('-c', '--coefficients COEFFICIENTS', String, 'Coefficients to use for evaluation (e.g., "gk_meta,mental,physical" or substring like "meta")') do |coefficients|
+  opts.on('-c', '--coefficients COEFFICIENTS', String,
+          'Coefficients to use for evaluation (e.g., "gk_meta,mental,physical" or substring like "meta")') do |coefficients|
     @options.coefficient_filters = coefficients.split(',').map(&:strip)
   end
 

@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'yaml'
+require 'bundler/setup'
+require 'pry'
+require 'optparse'
+require_relative '../lib/moneyball'
+
+@options = Moneyball::UseCases::TacticEvaluator::Options.new
+
+OptionParser.new do |opts|
+  opts.on('-f', '--file FILE', 'Path to the player data file, *required') do |file_path|
+    @options.file_path = file_path
+  end
+
+  opts.on('-d', '--headers HEADERS', String,
+          'Table headers to be displayed(e.g. "name,age,gk_meta"), Default: name,age,height,gk_meta') do |headers|
+    @options.headers = headers.split(',').map(&:strip).map(&:to_sym)
+  end
+
+  opts.on('-t', '--tactic TACTIC', 'Tactic name to evaluate, Default: 4-2-3-1') do |tactic_name|
+    @options.tactic_name = tactic_name
+  end
+
+  opts.on('-h', '--help', 'Display this help message') do
+    puts opts
+    exit
+  end
+end.parse!
+
+if @options.file_path.empty?
+  puts 'Error: File path is required. Use -f or --file to specify the file.'
+  exit 1
+end
+
+Moneyball::UseCases::TacticEvaluator.call(@options)

@@ -5,23 +5,18 @@ require 'yaml'
 
 module Moneyball
   module Entities
+    # Represents a coefficient used in the Moneyball system.
     class Coefficient
       extend T::Sig
 
       sig { returns(String) }
-      def id
-        @id
-      end
+      attr_reader :id
 
       sig { returns(String) }
-      def name
-        @name
-      end
+      attr_reader :name
 
       sig { returns(T::Hash[String, T::Array[Float]]) }
-      def attributes
-        @attributes
-      end
+      attr_reader :attributes
 
       sig { params(id: String, name: String, attributes: T::Hash[String, T::Array[Float]]).void }
       def initialize(id:, name:, attributes:)
@@ -31,7 +26,7 @@ module Moneyball
       end
 
       sig { params(filters: T::Array[String]).returns(T::Array[Coefficient]) }
-      def self.from_config(filters=[])
+      def self.from_config(filters = [])
         @from_config ||= T.let(YAML.load_file(File.join(ROOT_DIR, 'config', 'coefficients.yaml')).then do |file_content|
           file_content.filter_map do |key, value|
             next if filters.any? && filters.any? { |filter| !key.to_s.include?(filter) }

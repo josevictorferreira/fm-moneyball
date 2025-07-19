@@ -13,11 +13,14 @@ require_relative 'moneyball/entities/player_attributes/goal_keeping'
 require_relative 'moneyball/entities/coefficient'
 require_relative 'moneyball/entities/rating'
 require_relative 'moneyball/entities/player'
+require_relative 'moneyball/entities/tactic_position'
+require_relative 'moneyball/entities/tactic'
 require_relative 'moneyball/core/parser'
 require_relative 'moneyball/adapters/text/parser'
 require_relative 'moneyball/factory'
 require_relative 'moneyball/core/table'
 require_relative 'moneyball/use_cases/player_evaluator'
+require_relative 'moneyball/use_cases/tactic_evaluator'
 
 # The main module for Moneyball, a library for parsing and analyzing football manager player data.
 module Moneyball

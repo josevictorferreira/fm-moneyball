@@ -30,9 +30,11 @@ module Moneyball
         attr_accessor :coefficient_filters
 
         sig do
-          params(file_path: String, headers: T::Array[Symbol], sort: Symbol, order: Symbol, limit: Integer, coefficient_filters: T::Array[String]).void
+          params(file_path: String, headers: T::Array[Symbol], sort: Symbol, order: Symbol, limit: Integer,
+                 coefficient_filters: T::Array[String]).void
         end
-        def initialize(file_path: '', headers: %i[name age height gk_meta], sort: :desc, order: :age, limit: 10, coefficient_filters: [])
+        def initialize(file_path: '', headers: %i[name age height gk_meta], sort: :desc, order: :age, limit: 10,
+                       coefficient_filters: [])
           @file_path = T.let(file_path, String)
           @headers = T.let(headers, T::Array[Symbol])
           @sort = T.let(sort, Symbol)
@@ -46,7 +48,8 @@ module Moneyball
       def initialize(options)
         @options = T.let(options, Options)
         @file_path = T.let(options.file_path, String)
-        @coefficients = T.let(Entities::Coefficient.from_config(options.coefficient_filters), T.nilable(T::Array[Entities::Coefficient]))
+        @coefficients = T.let(Entities::Coefficient.from_config(options.coefficient_filters),
+                              T.nilable(T::Array[Entities::Coefficient]))
       end
 
       sig { void }
